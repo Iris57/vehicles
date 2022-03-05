@@ -1,4 +1,4 @@
-# robots
+# vehicles
 
 ## Project setup
 ```
@@ -20,5 +20,9 @@ yarn build
 yarn lint
 ```
 
+### Setup info
+initial setup was done using vue cli, with Vue 3 and Vuex Store selected
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+

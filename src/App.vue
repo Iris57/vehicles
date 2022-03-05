@@ -1,26 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <StoreArea />
+  <VehicleInfo v-if="getSelectedVehicleId" />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { mapActions, mapGetters } from "vuex";
+import StoreArea from "./components/StoreArea.vue";
+import VehicleInfo from "./components/VehicleInfo.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    StoreArea,
+    VehicleInfo,
+  },
+  computed: {
+    ...mapGetters(["getSelectedVehicleId"]),
+  },
+  methods: {
+    ...mapActions(["moveVehicles"]),
+  },
+  mounted() {
+    this.moveVehicles();
   },
 };
 </script>
 
 <style>
+body {
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+.text-warning {
+  color: darkorange;
+}
+.text-error {
+  color: darkred;
+}
+.text-ok {
+  color: darkgreen;
 }
 </style>
